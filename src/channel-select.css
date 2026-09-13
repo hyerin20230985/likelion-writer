@@ -1,0 +1,48 @@
+.channel-select-page { position: relative; isolation: isolate; width: 100%; height: 100vh; min-height: 768px; padding: 32px 64px; background: #f4f5f0 url('./assets/images/background.png') center / cover; color: #221f1d; display: grid; grid-template-rows: 64px auto minmax(0, 1fr) 52px; gap: 24px; overflow: hidden; }
+.channel-select-page::before { position: absolute; z-index: 0; inset: -8%; content: ''; background: radial-gradient(ellipse 32% 84% at 106% 52%, color-mix(in srgb, var(--theme-point) 58%, transparent) 0%, color-mix(in srgb, var(--theme-point) 36%, transparent) 30%, color-mix(in srgb, var(--theme-point) 16%, transparent) 56%, transparent 76%), radial-gradient(ellipse 38% 32% at 94% 100%, color-mix(in srgb, var(--theme-point) 28%, transparent) 0%, transparent 72%); filter: blur(10px); pointer-events: none; }
+.channel-select-page > * { position: relative; z-index: 1; }
+.channel-select-header { border-bottom: 1px solid #221f1d; display: flex; align-items: center; justify-content: space-between; }
+.masthead, .step-label, .channel-select-title > p, .channel-options-label, .selected-channel-code, .sentence-example > span, .channel-option-topline { font-size: 14px; font-weight: 600; letter-spacing: 0.12em; }
+.masthead { display: flex; gap: 12px; }
+.step-label, .channel-select-title > p, .channel-options-label, .selected-channel-code { color: var(--theme-point); }
+.channel-select-title { position: relative; z-index: 3; display: grid; gap: 8px; }
+.channel-select-title h1 { font-size: 56px; font-weight: 600; line-height: 1.2; }
+.channel-select-layout { position: relative; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(360px, 0.6fr); gap: 24px; }
+.selected-channel-card, .channel-option { border: 1px solid #221f1d; border-radius: 8px; background: #f4f5f0; }
+.selected-channel-card { position: relative; z-index: 2; min-width: 0; min-height: 0; border: 0; background: transparent; overflow: visible; }
+.lp-stage { position: absolute; z-index: 2; top: 128px; bottom: 0; left: -64px; width: 60%; overflow: visible; pointer-events: none; }
+.selected-lp { position: absolute; top: 50%; left: -38%; width: 128%; max-width: none; transform: translateY(-50%); animation: channel-lp-spin 8s linear infinite; }
+.selected-channel-copy { position: relative; z-index: 1; min-width: 0; height: 100%; margin-left: 48%; padding: 48px 24px 24px; border: 1px solid #221f1d; border-radius: 8px; background: #f4f5f0; display: flex; flex-direction: column; overflow: hidden; }
+.selected-channel-heading, .channel-option-title { display: flex; align-items: center; gap: 12px; }
+.selected-channel-heading { margin-top: 16px; }
+.selected-channel-heading h2 { font-size: 36px; font-weight: 600; line-height: 1.25; word-break: keep-all; }
+.channel-option-title img { width: auto; height: 1em; object-fit: contain; }
+.selected-channel-copy > :not(.selected-channel-icon) { position: relative; z-index: 1; }
+.selected-channel-icon { position: absolute; right: 24px; bottom: 24px; z-index: 0; width: 112px; height: 112px; background: var(--theme-point); opacity: 0.18; mask: var(--channel-icon) center / contain no-repeat; -webkit-mask: var(--channel-icon) center / contain no-repeat; pointer-events: none; }
+.selected-channel-description, .channel-option-description { font-size: 18px; line-height: 1.6; word-break: keep-all; }
+.selected-channel-description { margin-top: 12px; }
+.sentence-example { margin-top: 48px; padding-top: 16px; border-top: 1px solid #221f1d; display: grid; gap: 8px; }
+.sentence-example p { font-size: 24px; font-weight: 600; line-height: 1.6; word-break: keep-all; }
+.selected-channel-meta { margin-top: auto; padding-top: 24px; display: flex; gap: 16px; font-size: 14px; }
+.selected-channel-meta span + span { padding-left: 16px; border-left: 1px solid #221f1d; }
+.frequency-line { height: 12px; margin-top: 16px; display: flex; align-items: center; }
+.frequency-line i { flex: 1 1 auto; height: 1px; background: var(--theme-point); }
+.frequency-line b { flex: 0 0 auto; width: 12px; height: 12px; border-radius: 999px; background: var(--theme-point); }
+.channel-options { position: relative; z-index: 3; min-width: 0; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 16px; }
+.channel-option-list { min-height: 0; display: grid; grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.channel-option { position: relative; width: 100%; min-width: 0; padding: 24px; color: #221f1d; text-align: left; cursor: pointer; display: grid; align-content: center; gap: 8px; }
+.channel-option.is-selected { border-color: var(--channel-color); background: var(--channel-color); color: #f4f5f0; }
+.channel-option.is-selected .channel-option-topline { color: #f4f5f0; }
+.selection-arrow { position: absolute; z-index: 4; top: 50%; left: -112px; width: 104px; height: auto; filter: drop-shadow(0 3px 4px rgb(34 31 29 / 18%)); pointer-events: none; animation: selection-arrow-nudge 1.8s ease-in-out infinite; }
+.channel-option:focus-visible, .start-button:focus-visible, .text-button:focus-visible { outline: 2px solid var(--theme-point); outline-offset: 4px; }
+.channel-option-topline { display: flex; justify-content: space-between; color: var(--channel-color); }
+.channel-option-title { font-size: 24px; font-weight: 600; line-height: 1.25; word-break: keep-all; }
+.channel-option-description { font-size: 14px; }
+.channel-select-actions { display: flex; justify-content: flex-end; align-items: center; gap: 24px; }
+.start-button, .text-button { height: 52px; padding: 0 32px; border-radius: 4px; font-size: 18px; font-weight: 600; cursor: pointer; }
+.start-button { min-width: 224px; border: 1px solid var(--theme-point); background: var(--theme-point); color: #f4f5f0; }
+.text-button { padding: 0; border: 0; background: transparent; color: #221f1d; text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.text-button:hover, .text-button:focus-visible { text-decoration-thickness: 2px; }
+@keyframes channel-lp-spin { to { transform: translateY(-50%) rotate(360deg); } }
+@keyframes selection-arrow-nudge { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(8px); } }
+@media (prefers-reduced-motion: reduce) { .selected-lp, .selection-arrow { animation: none; } }
